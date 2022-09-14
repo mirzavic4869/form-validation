@@ -56,93 +56,94 @@ const FormInput = () => {
 	};
 
 	return (
-		<div className="bg-blue-100 w-full h-screen flex">
-			<div className="w-lg-2/3 h-lg-3/4 bg-white shadow-md rounded-lg m-auto">
-				<div className="columns-lg-2 p-5">
-					<div>
-						{/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
-						<form action="" onSubmit={handleSubmit}>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="nama">
-									Nama
-								</label>
-								<br />
-								<input name="name" type="text" placeholder="Nama" value={formValues.name} onChange={handleChange} />
-							</div>
-							<p className="text-red-600">{formErrors.name}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="date">
-									Date of Birth
-								</label>
-								<br />
-								<input name="date" type="date" placeholder="2018-07-22" min="1900-01-01" max="2050-12-31" />
-							</div>
-							<p className="text-red-600">{formErrors.date}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="place">
-									Place of Birth
-								</label>
-								<br />
-								<input name="place" type="text" placeholder="City" value={formValues.place} onChange={handleChange} />
-							</div>
-							<p className="text-red-600">{formErrors.place}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="adress">
-									Address
-								</label>
-								<br />
-								<input name="address" type="text" placeholder="Address" value={formValues.address} onChange={handleChange} />
-							</div>
-							<p className="text-red-600">{formErrors.address}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="phone">
-									Phone Number
-								</label>
-								<br />
-								<input name="phone" type="number" placeholder="Phone Number" />
-							</div>
-							<p className="text-red-600">{formErrors.phone}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="email">
-									Email
-								</label>
-								<br />
-								<input name="email" type="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
-							</div>
-							<p className="text-red-600">{formErrors.email}</p>
-							<div className="mb-4">
-								<label className="mr-4" htmlFor="title">
-									Title
-								</label>
-								<br />
-								<select name="title" id="title">
-									<option value="">--Please choose an option--</option>
-									<option value="Mr">Mr</option>
-									<option value="Ms">Ms</option>
-								</select>
-							</div>
-							<p className="text-red-600">{formErrors.title}</p>
-							<div className="mb-4">
-								<legend>Marriage Status</legend>
-								<div className="flex mt-2">
-									<div className="mr-4">
-										<input name="status" type="radio" id="single" value="single" />
-										<label htmlFor="huey">Single</label>
-									</div>
-									<div>
-										<input name="status" type="radio" id="married" value="married" />
-										<label htmlFor="married">Married</label>
-									</div>
+		<div className="bg-slate-100 w-full min-h-screen flex">
+			<div className="w-3/4 lg:h-3/4  my-10  bg-white shadow-md rounded-lg mx-auto">
+				{/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
+				<h1 className="font-bold text-3xl lg:text-4xl text-blue-800 p-5 text-center">Form Validation</h1>
+				<hr />
+				<div className="lg:columns-2 p-5">
+					<form action="" onSubmit={handleSubmit}>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="nama">
+								Nama
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="name" type="text" placeholder="Nama" value={formValues.name} onChange={handleChange} />
+						</div>
+						<p className="text-red-600">{formErrors.name}</p>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="date">
+								Date of Birth
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="date" type="date" placeholder="2018-07-22" min="1900-01-01" max="2050-12-31" />
+						</div>
+						<p className="text-red-600">{formErrors.date}</p>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="place">
+								Place of Birth
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="place" type="text" placeholder="City" value={formValues.place} onChange={handleChange} />
+						</div>
+						<p className="text-red-600">{formErrors.place}</p>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="adress">
+								Address
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="address" type="text" placeholder="Address" value={formValues.address} onChange={handleChange} />
+						</div>
+						<p className="text-red-600">{formErrors.address}</p>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="phone">
+								Phone Number
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="phone" type="number" placeholder="Phone Number" />
+						</div>
+						<p className="text-red-600">{formErrors.phone}</p>
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="email">
+								Email
+							</label>
+							<br />
+							<input className="border rounded-md my-2 p-2" name="email" type="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
+						</div>
+						<p className="text-red-600">{formErrors.email}</p>
+
+						<div className="mb-4">
+							<label className="mr-4 text-blue-800 font-semibold" htmlFor="title">
+								Title
+							</label>
+							<br />
+							<select name="title" id="title">
+								<option value="">--Please choose an option--</option>
+								<option value="Mr">Mr</option>
+								<option value="Ms">Ms</option>
+							</select>
+						</div>
+						<p className="text-red-600">{formErrors.title}</p>
+						<div className="mb-4">
+							<legend className="text-blue-800 font-semibold">Marriage Status</legend>
+							<div className="flex mt-2">
+								<div className="mr-4">
+									<input name="status" type="radio" id="single" value="single" />
+									<label htmlFor="huey">Single</label>
+								</div>
+								<div>
+									<input name="status" type="radio" id="married" value="married" />
+									<label htmlFor="married">Married</label>
 								</div>
 							</div>
-							<p className="text-red-600">{formErrors.status}</p>
-							<div>
-								<button className="bg-green-500 p-3 rounded-lg text-white font-bold w-full" type="submit">
-									Submit
-								</button>
-							</div>
-						</form>
-					</div>
+						</div>
+						<p className="text-red-600">{formErrors.status}</p>
+					</form>
+				</div>
+				<div className="justify-center flex p-5">
+					<button className="bg-green-500 p-3 rounded-lg text-white font-bold w-full lg:w-1/3 " type="submit">
+						Submit
+					</button>
 				</div>
 			</div>
 		</div>

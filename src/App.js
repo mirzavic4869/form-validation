@@ -3,7 +3,7 @@ import FormInput from "./components/FormInput";
 
 function App() {
 	return (
-		<div className="bg-blue-100 w-full h-full">
+		<div>
 			<FormInput />
 		</div>
 	);
