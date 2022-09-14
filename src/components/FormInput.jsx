@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
+import ImagesInput from "./ImagesInput";
 
 const FormInput = () => {
-	const initialValues = { name: "", date: "", place: "", address: "", phone: "", email: "", title: "", status: "" };
+	const initialValues = { name: "", date: "", place: "", address: "", phone: "", email: "", title: "", status: "", images: "" };
 	const [formValues, setFormValues] = useState(initialValues);
 	const [formErrors, setFormErrors] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
@@ -17,9 +18,8 @@ const FormInput = () => {
 		setIsSubmit(true);
 	};
 	useEffect(() => {
-		console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			console.log(formValues);
+			setFormValues(formValues);
 		}
 	}, [formErrors]);
 
@@ -50,100 +50,114 @@ const FormInput = () => {
 			errors.date = "Date of birth is required!";
 		}
 		if (!values.address) {
-			errors.address = "Address of birth is required!";
+			errors.address = "Address is required!";
+		}
+		if (!values.images) {
+			errors.images = "Image is required!";
 		}
 		return errors;
 	};
 
 	return (
 		<div className="bg-slate-100 w-full min-h-screen flex">
+			{Object.keys(formErrors).length === 0 && isSubmit ? alert("registration has been successful") : console.log("registration has failed")}
 			<div className="w-3/4 lg:h-3/4  my-10  bg-white shadow-md rounded-lg mx-auto">
 				{/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
 				<h1 className="font-bold text-3xl lg:text-4xl text-blue-800 p-5 text-center">Form Validation</h1>
 				<hr />
 				<div className="lg:columns-2 p-5">
-					<form action="" onSubmit={handleSubmit}>
+					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="nama">
 								Nama
 							</label>
 							<br />
 							<input className="border rounded-md my-2 p-2" name="name" type="text" placeholder="Nama" value={formValues.name} onChange={handleChange} />
+							<p className="text-red-600">{formErrors.name}</p>
 						</div>
-						<p className="text-red-600">{formErrors.name}</p>
+
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="date">
 								Date of Birth
 							</label>
 							<br />
-							<input className="border rounded-md my-2 p-2" name="date" type="date" placeholder="2018-07-22" min="1900-01-01" max="2050-12-31" />
+							<input className="border rounded-md my-2 p-2" name="date" type="date" placeholder="2018-07-22" min="1900-01-01" max="2050-12-31" onChange={handleChange} />
+							<p className="text-red-600">{formErrors.date}</p>
 						</div>
-						<p className="text-red-600">{formErrors.date}</p>
+
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="place">
 								Place of Birth
 							</label>
 							<br />
 							<input className="border rounded-md my-2 p-2" name="place" type="text" placeholder="City" value={formValues.place} onChange={handleChange} />
+							<p className="text-red-600">{formErrors.place}</p>
 						</div>
-						<p className="text-red-600">{formErrors.place}</p>
+
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="adress">
 								Address
 							</label>
 							<br />
 							<input className="border rounded-md my-2 p-2" name="address" type="text" placeholder="Address" value={formValues.address} onChange={handleChange} />
+							<p className="text-red-600">{formErrors.address}</p>
 						</div>
-						<p className="text-red-600">{formErrors.address}</p>
+
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="phone">
 								Phone Number
 							</label>
 							<br />
-							<input className="border rounded-md my-2 p-2" name="phone" type="number" placeholder="Phone Number" />
+							<input className="border rounded-md my-2 p-2" name="phone" type="number" placeholder="Phone Number" onChange={handleChange} />
+							<p className="text-red-600">{formErrors.phone}</p>
 						</div>
-						<p className="text-red-600">{formErrors.phone}</p>
+
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="email">
 								Email
 							</label>
 							<br />
 							<input className="border rounded-md my-2 p-2" name="email" type="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
+							<p className="text-red-600">{formErrors.email}</p>
 						</div>
-						<p className="text-red-600">{formErrors.email}</p>
 
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="title">
 								Title
 							</label>
 							<br />
-							<select name="title" id="title">
-								<option value="">--Please choose an option--</option>
+							<select className="border rounded-md mt-2 w-20" name="title" id="title" onChange={handleChange}>
+								<option value=""></option>
 								<option value="Mr">Mr</option>
 								<option value="Ms">Ms</option>
 							</select>
+							<p className="text-red-600">{formErrors.title}</p>
 						</div>
-						<p className="text-red-600">{formErrors.title}</p>
+
 						<div className="mb-4">
 							<legend className="text-blue-800 font-semibold">Marriage Status</legend>
 							<div className="flex mt-2">
 								<div className="mr-4">
-									<input name="status" type="radio" id="single" value="single" />
-									<label htmlFor="huey">Single</label>
+									<input name="status" type="radio" id="single" value="single" onChange={handleChange} />
+									<label htmlFor="single">Single</label>
 								</div>
 								<div>
-									<input name="status" type="radio" id="married" value="married" />
+									<input name="status" type="radio" id="married" value="married" onChange={handleChange} />
 									<label htmlFor="married">Married</label>
 								</div>
 							</div>
+							<p className="text-red-600">{formErrors.status}</p>
 						</div>
-						<p className="text-red-600">{formErrors.status}</p>
+
+						<div className="mb-4">
+							<ImagesInput />
+						</div>
+						<div className="justify-center flex p-5 lg:justify-self-start">
+							<button className="bg-green-500 p-3 rounded-lg text-white font-bold w-full lg:w-1/3 " type="submit" onSubmit={handleSubmit}>
+								Submit
+							</button>
+						</div>
 					</form>
-				</div>
-				<div className="justify-center flex p-5">
-					<button className="bg-green-500 p-3 rounded-lg text-white font-bold w-full lg:w-1/3 " type="submit">
-						Submit
-					</button>
 				</div>
 			</div>
 		</div>

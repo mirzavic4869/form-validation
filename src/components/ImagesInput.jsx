@@ -16,10 +16,11 @@ const ImagesInput = () => {
 	return (
 		<div>
 			<section>
-				<label htmlFor="Images">
-					Add Images
-					<input type="file" name="images" onChange={onSelectFile} multiple accept="image/png , image/jpeg, image/webp" />
+				<label className="text-blue-800 font-semibold mr-2" htmlFor="Images">
+					Images
 				</label>
+				<input className="mt-2" type="file" name="images" onChange={onSelectFile} multiple accept="image/png , image/jpeg, image/webp" />
+
 				{selectedImages.length > 0 && selectedImages.length > 5 ? (
 					<p>
 						You can't upload more than 5 images! <br />
@@ -29,20 +30,21 @@ const ImagesInput = () => {
 					</p>
 				) : (
 					<button
+						className="bg-blue-800 text-white p-2 rounded-lg my-3"
 						onClick={() => {
-							alert("upload image success");
+							selectedImages.length > 0 ? alert("upload image success") : <button disabled></button>;
 						}}
 					>
 						Upload {selectedImages.length} Image{selectedImages.length <= 1 ? "" : "s"}
 					</button>
 				)}
 
-				<div className="images">
+				<div className="images flex gap-3">
 					{selectedImages &&
 						selectedImages.map((image, index) => {
 							return (
-								<div key={image} className="image">
-									<img src={image} alt="foto" height={40} width={60} />
+								<div key={image} className="image lg:flex lg:gap-2">
+									<img src={image} alt="foto" width={50} />
 									<button className="bg-red-600 rounded-full text-white p-2" onClick={() => setSelectedImages(selectedImages.filter((e) => e !== image))}>
 										X
 									</button>
