@@ -39,16 +39,16 @@ const ImagesInput = () => {
 					</button>
 				)}
 
-				<div className="images flex gap-3">
+				<div className="images columns-3 lg:flex lg:gap-3">
 					{selectedImages &&
 						selectedImages.map((image, index) => {
 							return (
 								<div key={image} className="image lg:flex lg:gap-2">
-									<img src={image} alt="foto" width={50} />
-									<button className="bg-red-600 rounded-full text-white p-2" onClick={() => setSelectedImages(selectedImages.filter((e) => e !== image))}>
+									<img src={image} alt="foto" width={30} />
+									<p>{index + 1}</p>
+									<button className="bg-red-600 rounded-full w-[15px] h-[15px] text-white text-[10px] " onClick={() => setSelectedImages(selectedImages.filter((e) => e !== image))}>
 										X
 									</button>
-									<p>{index + 1}</p>
 								</div>
 							);
 						})}

@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { WithRouter } from "../utils/Navigation";
 import ImagesInput from "./ImagesInput";
 
 const FormInput = () => {
@@ -164,4 +165,4 @@ const FormInput = () => {
 	);
 };
 
-export default FormInput;
+export default WithRouter(FormInput);
