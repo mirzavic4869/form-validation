@@ -20,7 +20,7 @@ const FormInput = () => {
 	};
 	useEffect(() => {
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			setFormValues(formValues);
+			console.log(formValues);
 		}
 	}, [formErrors]);
 
@@ -61,13 +61,13 @@ const FormInput = () => {
 
 	return (
 		<div className="bg-slate-100 w-full min-h-screen flex">
-			{Object.keys(formErrors).length === 0 && isSubmit ? alert("registration has been successful") : console.log("registration has failed")}
+			{Object.keys(formErrors).length === 0 && isSubmit ? alert("registration has been successfull") : console.log("registration has failed")}
 			<div className="w-3/4 lg:h-3/4  my-10  bg-white shadow-md rounded-lg mx-auto">
 				{/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
 				<h1 className="font-bold text-3xl lg:text-4xl text-blue-800 p-5 text-center">Form Validation</h1>
 				<hr />
 				<div className="lg:columns-2 p-5">
-					<form onSubmit={(e) => handleSubmit(e)}>
+					<form onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="mr-4 text-blue-800 font-semibold" htmlFor="nama">
 								Nama
@@ -150,7 +150,7 @@ const FormInput = () => {
 							<p className="text-red-600">{formErrors.status}</p>
 						</div>
 
-						<div className="mb-4">
+						<div className="mb-4 ">
 							<ImagesInput />
 						</div>
 						<div className="justify-center flex p-5 lg:justify-self-start">
