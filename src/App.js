@@ -1,9 +1,10 @@
 import "./App.css";
+import FormInput from "./components/FormInput";
 
 function App() {
 	return (
-		<div className="App">
-			<div></div>
+		<div className="bg-blue-100 w-full h-full">
+			<FormInput />
 		</div>
 	);
 }
