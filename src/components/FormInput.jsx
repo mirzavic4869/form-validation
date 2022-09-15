@@ -53,15 +53,15 @@ const FormInput = () => {
 		if (!values.address) {
 			errors.address = "Address is required!";
 		}
-		if (!values.images) {
-			errors.images = "Image is required!";
-		}
+		// if (!values.images) {
+		// 	errors.images = "Image is required!";
+		// }
 		return errors;
 	};
 
 	return (
 		<div className="bg-slate-100 w-full min-h-screen flex">
-			{Object.keys(formErrors).length === 0 && isSubmit ? <div className="ui message success">Signed in successfully</div> : <pre>{JSON.stringify(formValues, undefined, 2)}</pre>}
+			{Object.keys(formErrors).length === 0 && isSubmit ? alert("Registration has been successfull") : ""}
 			<div className="w-3/4 lg:h-3/4  my-10  bg-white shadow-md rounded-lg mx-auto">
 				{/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
 				<h1 className="font-bold text-3xl lg:text-4xl text-blue-800 p-5 text-center">Form Validation</h1>
