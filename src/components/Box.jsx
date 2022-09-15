@@ -30,13 +30,22 @@ const Box = () => {
 
 	return (
 		<div className="justify-center flex ">
-			<div className={"bg-white  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-red-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")} onClick={changeColor}>
+			<div
+				className={"bg-white lg:flex-2  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-red-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")}
+				onClick={changeColor}
+			>
 				Box 1
 			</div>
-			<div className={"bg-white-600 text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-green-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")} onClick={changeColor}>
+			<div
+				className={"bg-white-600 lg:flex-2 text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-green-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")}
+				onClick={changeColor}
+			>
 				Box 2
 			</div>
-			<div className={"bg-white  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-blue-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")} onClick={changeColor}>
+			<div
+				className={"bg-white  lg:flex-1  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md " + (state ? "bg-blue-600  text-white  text-center font-bold w-full h-60  mx-2 shadow-lg rounded-md" : "")}
+				onClick={changeColor}
+			>
 				Box 3
 			</div>
 		</div>
